@@ -1,0 +1,278 @@
+@import url(base.css);
+main {
+  background-color: #f6f6f6;
+}
+main .content {
+  min-height: 550px;
+}
+main .content input {
+  display: none;
+}
+main .content .years-nav {
+  height: 60px;
+  background-color: #fff;
+  padding-top: 5px;
+  margin-bottom: 40px;
+}
+main .content .years-nav ul {
+  height: 60px;
+  font-size: 20px;
+  color: #666;
+}
+main .content .years-nav ul li {
+  float: left;
+  margin-left: 20px;
+}
+main .content .years-nav ul li label {
+  line-height: 60px;
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.journal-club .content-items-all {
+  overflow: hidden;
+  width: 1200px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.journal-club .content-items-all .year-items {
+  flex-shrink: 0;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.journal-club .content-items-all .year-items > div {
+  flex-shrink: 0;
+  width: 500px;
+  height: 200px;
+  background-color: #fff;
+  margin: 20px 30px;
+  border-radius: 2%;
+  box-shadow: 0px 10px 20px #999;
+  overflow: hidden;
+}
+.journal-club .content-items-all .year-items > div a {
+  display: block;
+}
+.journal-club .content-items-all .year-items > div div {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.journal-club .content-items-all .year-items > div .title {
+  height: 80px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.journal-club .content-items-all .year-items > div .time::before {
+  font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
+  font-weight: 600;
+  content: '\f133';
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.journal-club .content-items-all .year-items > div .speaker::before {
+  font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
+  font-weight: 600;
+  content: '\f007';
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.journal-club .content-items-all .year-items > div .location::before {
+  font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
+  font-weight: 600;
+  content: '\f124';
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.journal-club input[type="radio"]:nth-of-type(1):checked ~ .years-nav ul li:nth-of-type(1),
+.journal-club input[type="radio"]:nth-of-type(2):checked ~ .years-nav ul li:nth-of-type(2),
+.journal-club input[type="radio"]:nth-of-type(3):checked ~ .years-nav ul li:nth-of-type(3) {
+  background-color: #005826;
+  color: #fff;
+}
+.journal-club .years-nav li:hover {
+  background-color: #40735d;
+  color: #fff;
+}
+.journal-club .content-items-all > .year-items .title {
+  background-color: #005826;
+  color: #fff;
+}
+.journal-club .content-items-all > .year-items > div div::before {
+  color: #005826;
+}
+.report .content-items-all {
+  overflow: hidden;
+  width: 1200px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.report .content-items-all .year-items {
+  flex-shrink: 0;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.report .content-items-all .year-items > div {
+  flex-shrink: 0;
+  width: 500px;
+  height: 220px;
+  background-color: #fff;
+  margin: 20px 30px;
+  border-radius: 2%;
+  box-shadow: 0px 10px 20px #999;
+  overflow: hidden;
+}
+.report .content-items-all .year-items > div a {
+  display: block;
+}
+.report .content-items-all .year-items > div div {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.report .content-items-all .year-items > div .title {
+  height: 80px;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.report .content-items-all .year-items > div .time::before {
+  content: '时间：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.report .content-items-all .year-items > div .speaker::before {
+  content: '报告人：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.report .content-items-all .year-items > div .location::before {
+  content: '地点：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.report .content-items-all .year-items > div .inviter::before {
+  content: '邀请人：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.report input[type="radio"]:nth-of-type(1):checked ~ .years-nav ul li:nth-of-type(1),
+.report input[type="radio"]:nth-of-type(2):checked ~ .years-nav ul li:nth-of-type(2),
+.report input[type="radio"]:nth-of-type(3):checked ~ .years-nav ul li:nth-of-type(3) {
+  background-color: #c58248;
+  color: #fff;
+}
+.report .years-nav li:hover {
+  background-color: rgba(197, 130, 72, 0.7);
+  color: #fff;
+}
+.report .content-items-all > .year-items .title {
+  background-color: #c58248;
+  color: #fff;
+}
+.report .content-items-all > .year-items > div div::before {
+  color: #c58248;
+}
+.conference .content-items-all {
+  overflow: hidden;
+  width: 1200px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.conference .content-items-all .year-items {
+  flex-shrink: 0;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.conference .content-items-all .year-items > div {
+  flex-shrink: 0;
+  width: 500px;
+  height: 220px;
+  background-color: #fff;
+  margin: 20px 30px;
+  border-radius: 2%;
+  box-shadow: 0px 10px 20px #999;
+  overflow: hidden;
+}
+.conference .content-items-all .year-items > div a {
+  display: block;
+}
+.conference .content-items-all .year-items > div div {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.conference .content-items-all .year-items > div .title {
+  text-align: justify;
+  height: 120px;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.conference .content-items-all .year-items > div .time::before {
+  content: '时间：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.conference .content-items-all .year-items > div .location::before {
+  content: '地点：';
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.conference input[type="radio"]:nth-of-type(1):checked ~ .years-nav ul li:nth-of-type(1),
+.conference input[type="radio"]:nth-of-type(2):checked ~ .years-nav ul li:nth-of-type(2),
+.conference input[type="radio"]:nth-of-type(3):checked ~ .years-nav ul li:nth-of-type(3) {
+  background-color: #1a64a0;
+  color: #fff;
+}
+.conference .years-nav li:hover {
+  background-color: rgba(26, 100, 160, 0.7);
+  color: #fff;
+}
+.conference .content-items-all > .year-items .title {
+  background-color: #1a64a0;
+  color: #fff;
+}
+.conference .content-items-all > .year-items > div div::before {
+  color: #1a64a0;
+}
+.content .year-items {
+  transition: 1s transform ease-in-out;
+}
+.content .content-items-all > .year-items > div:hover {
+  transition: transform 0.5s ease-in;
+  transform: scale(1.1);
+}
+.content input[type="radio"]:nth-of-type(1):checked ~ .content-items-all .year-items {
+  transform: translateX(0%);
+}
+.content input[type="radio"]:nth-of-type(2):checked ~ .content-items-all .year-items {
+  transform: translateX(-100%);
+}
+.content input[type="radio"]:nth-of-type(3):checked ~ .content-items-all .year-items {
+  transform: translateX(-200%);
+}

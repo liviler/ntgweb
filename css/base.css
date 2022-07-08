@@ -1,0 +1,124 @@
+@import url(reset.css);
+/*css style that can apply all webpages  */
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font: 14px/1.5 Georgia, Arial, Helvetica, "Microsoft YaHei", sans-serif;
+  color: #333;
+  background-color: #fff;
+  min-width: 1200px;
+}
+/* 网页的宽度 */
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+header .logo {
+  width: 100%;
+  height: 140px;
+}
+nav {
+  font-family: "Microsoft YaHei";
+  background-color: #005826;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+}
+nav .top-nav > ul {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+nav .top-nav > ul > li {
+  position: relative;
+  line-height: 60px;
+  width: 150px;
+  font-size: 18px;
+}
+nav .top-nav > ul > li > a {
+  display: block;
+  color: #fff;
+  text-align: center;
+}
+nav .top-nav > ul .extend,
+nav .top-nav > ul .extend li > a {
+  box-sizing: border-box;
+  padding-left: 10px;
+  display: block;
+  color: #fff;
+  text-align: left;
+}
+nav .top-nav > ul a:hover {
+  background-color: #40735d;
+}
+nav .top-nav > ul .extend i {
+  font-size: 14px;
+}
+nav .top-nav > ul .home i {
+  font-size: 28px;
+  padding-right: 6px;
+}
+.top-nav .more {
+  overflow: hidden;
+  background-color: #005826;
+  width: 150px;
+  height: 0;
+  box-shadow: 0 5px 10px #333333;
+  position: absolute;
+  top: 60px;
+  z-index: 999;
+  left: 0;
+  transition: height 1s;
+}
+.top-nav .more a {
+  line-height: 40px;
+  font-size: 16px;
+}
+.top-nav .extend:hover {
+  background-color: #005826;
+  box-shadow: 0 5px 10px #333333;
+}
+.top-nav .extend:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: #005826;
+  position: absolute;
+  z-index: 9999;
+  bottom: 0px;
+  left: 0;
+}
+.top-nav .extend:hover .research {
+  height: 120px;
+}
+.top-nav .extend:hover .event {
+  height: 200px;
+}
+footer {
+  width: 100%;
+  height: 140px;
+  background-color: #005826;
+}
+footer .logo {
+  float: left;
+}
+footer .info {
+  float: right;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 20px;
+  margin-right: 10%;
+}
+footer .info span {
+  display: block;
+}
