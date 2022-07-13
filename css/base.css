@@ -138,6 +138,7 @@ footer .links .title span {
   border-bottom: 1px solid #fff;
 }
 footer .links > a {
+  margin-bottom: 8px;
   height: 20px;
   font-size: 16px;
   color: #ddd;
