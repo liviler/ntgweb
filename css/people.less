@@ -71,6 +71,17 @@ main{
         }   
     }
 
+    #visitors{
+        &::before{
+            content:'Visitors:';
+            display: block;
+            color: @background-color;
+            font-size:22px;
+            padding-top: 60px;
+
+        }   
+    }
+
     #phdStudents{
         &::before{
             content:'PhD Students:';
@@ -96,6 +107,18 @@ main{
     #undergraduates{
         &::before{
             content:'Undergraduates:';
+            display: block;
+            color: @background-color;
+            font-size:22px;
+            padding-top: 60px;
+
+
+        }
+    }
+    #former{
+        &::before{
+            min-height: 100px;
+            content:'Former Members:';
             display: block;
             color: @background-color;
             font-size:22px;

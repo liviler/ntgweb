@@ -109,6 +109,7 @@ footer {
   background-color: #005826;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 footer .logo {
   width: 660px;

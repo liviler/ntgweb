@@ -43,6 +43,13 @@ main #postdocs::before {
   font-size: 22px;
   padding-top: 60px;
 }
+main #visitors::before {
+  content: 'Visitors:';
+  display: block;
+  color: #005826;
+  font-size: 22px;
+  padding-top: 60px;
+}
 main #phdStudents::before {
   content: 'PhD Students:';
   display: block;
@@ -59,6 +66,14 @@ main #masterStudents::before {
 }
 main #undergraduates::before {
   content: 'Undergraduates:';
+  display: block;
+  color: #005826;
+  font-size: 22px;
+  padding-top: 60px;
+}
+main #former::before {
+  min-height: 100px;
+  content: 'Former Members:';
   display: block;
   color: #005826;
   font-size: 22px;
