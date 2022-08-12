@@ -5,7 +5,7 @@ window.addEventListener('load',function(){
     cur_month = cur_time.getMonth() + 1;
     cur_day= cur_time.getDate();
 
-    calendar_icon = document.querySelector(".files .calendar i");
+    calendar_icon = document.querySelector(".column .calendar i");
 
     time_div = document.createElement('div');
     time_div.className='current-time';

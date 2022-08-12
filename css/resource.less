@@ -5,10 +5,12 @@ main{
 
     height: 1000px;
 
-    .files{
+    .column{
         margin: 10px 0;
-        &::before{
-            content:"信息：";
+        display: flex;
+        flex-wrap: wrap;
+        .title{
+            width: 100%;
             display: block;
             font-size: 20px;
             color: @background-color;
@@ -28,6 +30,7 @@ main{
             color: #666;
             border-radius: 5px;
             box-shadow: 0 0 6px #999;
+            margin: 0 5px;
             
             i{
                 color: @background-color;
@@ -38,11 +41,13 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size: 30px;
                 img{
                     height: 70%;
                 }
             }
             span{
+                font-size: 14px;
                 color: #666;
                 float: right;
                 display: block;
