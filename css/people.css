@@ -87,11 +87,15 @@ main .people-list {
 main .people-list .info-card {
   overflow: hidden;
   width: 1000px;
-  height: 170px;
+  min-height: 140px;
   background-color: #fff;
   margin: 20px auto;
   box-shadow: 0 0 10px #999;
   border-radius: 15px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main .people-list .info-card .info-card-leftside {
   width: 20%;
@@ -107,6 +111,12 @@ main .people-list .info-card .info-card-leftside .photo {
 main .people-list .info-card .info-card-leftside .photo img {
   height: 100%;
 }
+main .people-list .info-card .info-card-leftside .name {
+  width: 100%;
+}
+main .people-list .info-card .info-card-leftside .title {
+  width: 100%;
+}
 main .people-list .info-card .info-card-leftside .title::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
   font-weight: 900;
@@ -118,7 +128,6 @@ main .people-list .info-card .info-card-rightside {
   font-size: 16px;
   width: 80%;
   float: right;
-  padding: 20px 0;
 }
 main .people-list .info-card .info-card-rightside .interest::before {
   width: 60px;
