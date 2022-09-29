@@ -238,7 +238,6 @@ main {
                 font-size: 14px;
             }
 
-
             &::before{
                 font-family: 'Font Awesome 6 Brands','Font Awesome 6 Free';
                 font-weight: 400;
@@ -266,7 +265,7 @@ main {
                 }
 
                 .time{
-                    width: 82px;
+                    width: 88px;
                     color: @background-color;
                     overflow: hidden;
                 }
@@ -350,6 +349,7 @@ main {
             height:45px;
             line-height:$height;
             font-size: 20px;
+            width: 100%;
             &::before{
                 font-family: 'Font Awesome 6 Brands','Font Awesome 6 Free';
                 font-weight: 400;
@@ -357,19 +357,26 @@ main {
                 margin: 0 5px;
                 color: @background-color;
                 float: left;
+                font-size: 18px;
             }
             a{
+                width: 92%;
                 display:block;
                 float: left;
                 .time,.content{
+                    height: 45px;
                     color: #666;
                     font-size: 16px;
                     float: left;
                 }
-
+                .content{
+                    width: 82%;
+                    overflow: hidden;
+                    text-align:justify;
+                }
                 .time{
                     height: 45px;
-                    width: 82px;
+                    width: 88px;
                     color: @background-color;
                     overflow: hidden;
                 }

@@ -195,7 +195,7 @@ main .exhibition .spare-time {
   text-align: justify;
 }
 .journalclub ul li a .time {
-  width: 82px;
+  width: 88px;
   color: #005826;
   overflow: hidden;
 }
@@ -262,6 +262,7 @@ main .exhibition .spare-time {
   height: 45px;
   line-height: 45px;
   font-size: 20px;
+  width: 100%;
 }
 .seminar ul li::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
@@ -270,20 +271,28 @@ main .exhibition .spare-time {
   margin: 0 5px;
   color: #005826;
   float: left;
+  font-size: 18px;
 }
 .seminar ul li a {
+  width: 92%;
   display: block;
   float: left;
 }
 .seminar ul li a .time,
 .seminar ul li a .content {
+  height: 45px;
   color: #666;
   font-size: 16px;
   float: left;
 }
+.seminar ul li a .content {
+  width: 82%;
+  overflow: hidden;
+  text-align: justify;
+}
 .seminar ul li a .time {
   height: 45px;
-  width: 82px;
+  width: 88px;
   color: #005826;
   overflow: hidden;
 }
