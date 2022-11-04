@@ -195,3 +195,6 @@ main .people-list .info-card .info-card-rightside .personPage::before {
   font-size: 14px;
   margin-right: 5px;
 }
+main .people-list .info-card .info-card-rightside .personPage a {
+  margin-right: 10px;
+}
