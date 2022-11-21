@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Club</title>
+    <link rel="icon" href="/base/logo/favicon.ico">
+
+    <link rel="stylesheet" href="/fa/css/all.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="./css/journal-club.css">
+
+    <script type="text/javascript"src="https://code.jquery.com/jquery-1.4.1.min.js"></script>
+    <script>
+        $(function(){
+            $("header").load("/base/header.html");
+            $("nav").load("/base/nav.html");
+            $("footer").load("/base/footer.html");
+        });
+    </script>
+</head>
+
+<body>
+    <header></header>
+    <nav></nav>
+
+    <main>
+        <div class="container1 w">
+
+            <div class="title">
+                Journal Club: Self-learning emulators and eigenvector continuation
+                
+            </div>
+
+            <div class="report">
+
+                <div class="report-reporter">张馨</div>
+
+                <div class="report-time">11月14日晚上19:30-21:00</div>
+
+                <div class="report-location">天琴大楼2317</div>
+
+                <div class="report-document"><a href="./doc/journal-club20221114.pdf">幻灯片</a></div>
+
+            </div>
+
+            <div class="paper">
+
+                <div class="paper-title">Self-learning emulators and eigenvector continuation</div>
+                <div class="paper-link">
+                    <a class="doi" href="https://doi.org/10.1103/PhysRevResearch.4.023214">Phys. Rev. Research 4, 023214</a>
+
+                </div>
+                <div class="paper-abstract">
+                    Emulators that can bypass computationally expensive scientific calculations with high accuracy and speed can enable new studies of fundamental science as well as more potential applications. In this work we discuss solving a system of constraint equations efficiently using a self-learning emulator. A self-learning emulator is an active learning protocol that can be used with any emulator that faithfully reproduces the exact solution at selected training points. The key ingredient is a fast estimate of the emulator error that becomes progressively more accurate as the emulator is improved, and the accuracy of the error estimate can be corrected using machine learning. We illustrate with three examples. The first uses cubic spline interpolation to find the solution of a transcendental equation with variable coefficients. The second example compares a spline emulator and a reduced basis method emulator to find solutions of a parametrized differential equation. The third example uses eigenvector continuation to find the eigenvectors and eigenvalues of a large Hamiltonian matrix that depends on several control parameters.
+                   
+                 </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer></footer>
+    
+
+
+</body>
