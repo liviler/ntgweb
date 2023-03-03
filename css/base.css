@@ -67,6 +67,12 @@ nav .top-nav > ul .home i {
   font-size: 28px;
   padding-right: 6px;
 }
+nav #login {
+  font-size: 14px;
+}
+nav #login a {
+  color: #fff;
+}
 .top-nav .more {
   overflow: hidden;
   background-color: #005826;

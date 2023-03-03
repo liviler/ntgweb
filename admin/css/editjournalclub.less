@@ -1,0 +1,180 @@
+@import './sidenav.less';
+@import './style.less';
+body{
+    background-color: @color-backgound;
+}
+
+main{
+    margin-left: 210px;
+    // background-color: red;
+    height: 100%;
+    display: block;
+    display: flex;
+    #displayJClub{
+        font-size: 14px;
+        line-height: 20px;
+        width: 70%;
+        #displayJClub_form{
+            margin-left: 5%;
+            .item{
+                label{
+                    margin-right: 16px;
+                    margin-top: 20px;
+                    width: 35%;
+                    text-align: right;
+                    display: inline-block;
+                    color: @text-color-default;
+                }
+                //通用样式
+                .input{
+                    width: 60%;
+                    height: 40px;
+                    // background-color: red;
+                    // margin: 5px;
+                    display: inline-block;
+                    input{
+                        height: 24px;
+                        border: 2px solid @border-color;
+                        border-radius: 5px;
+                        color:@form-text-color;
+                        // margin: 5px;
+                        outline-style: none;
+                        
+                    }
+                    input:focus{
+                        border: 1px solid #0085BD;
+                        // height: 24px;
+                        //border-color: @border-color-focus;
+                    }       
+                }
+
+                #jc_title{
+                    width: 450px;
+                }  
+
+                .time{
+                    width: 450px;
+                    height: 30px;
+                    border: 2px solid @border-color;
+                    border-radius: 5px;
+                    color:@form-text-color;
+                    // margin: 5px;
+                    // position: relative;
+                    input{
+                        width: 180px;
+                        position: relative;
+                        height: 20px;
+                        margin: 2px;
+                        margin-left:5px;
+                        margin-right: 5px;
+                        border: none;
+                        text-align: center;
+                    }
+                    //默认取消日历图标的显示
+                    input[type=datetime-local]::-webkit-calendar-picker-indicator{
+                        position: absolute;
+                        right: 0;
+                        padding-left: 100%;
+                        visibility: hidden;
+                    }
+                    //当focus到input框时候，显示日历图标
+                    input[type=datetime-local]:focus{
+                        &::-webkit-calendar-picker-indicator{
+                            visibility:visible;
+                        }
+                    }
+             
+
+                }
+
+                #jc_paper_title{
+                    width: 450px;
+                }
+                #jc_paper_link{
+                    width: 450px;
+                    height: 15px;
+                }
+                label[for='jc_paper_abstract']{
+                    height: 100%;
+                    vertical-align: top;
+                }
+                #jc_paper_abstract{
+                    display: inline-block;
+                    width: 450px;
+                    height: 250px;
+                    border: 2px solid @border-color;
+                    outline-style: none;
+                }
+                #jc_paper_abstract:focus{
+                    border: 1px solid #0085BD;
+                }
+
+
+            }
+            h3{
+                color: #666;
+                font-size: 18px;
+                margin-left: 55%;
+            }
+        }
+        
+        .button_event{
+            margin-left: 50%;
+            margin-top: 20px;
+            button{
+                width: 80px;
+                height: 30px;
+                color: #ffffff;
+                border-radius: 5px;
+                border: 1px transparent solid;
+                display: inline-block;
+                margin: 20px;
+            }
+            #edit{
+                background-color: @button-color-edit;
+            }
+            #submit{
+                background-color: @button-color-submit;
+            }
+
+        }
+    }
+
+    #jclubList{
+        width: 30%;
+        min-height: 200px;
+        border-left: 1px solid @border-color;
+        padding-left: 10px;
+        
+        h3{
+            color: #666;
+            font-size: 18px;
+            text-align: center;
+        }
+                
+        .search{
+            font-size: 16px;
+            line-height: 22px;
+            color:@search-text-color;
+            margin: 10px;
+        }
+        .list{
+            list-style: none;
+            padding-left: 0px;
+            border: 1px solid @border-color;
+            border-radius: 5px;
+            li{
+                // border-bottom:1px solid @border-color;
+                margin-top: 10px;
+                span{
+                    margin-left: 5px;
+                }
+            }
+            li:hover{
+                border-bottom: 1px solid green;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
