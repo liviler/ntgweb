@@ -199,7 +199,7 @@
 	</div>
 
     <script>
-		const serverURL = 'itp.usys.ac.cn:3333'
+		localStorage.setItem('apiURL','http://itp.usys.ac.cn:3333')
 		const jumpURL =  '/admin/index.html'
   		document.getElementById('submit').addEventListener('click',()=>{
         const data = {
@@ -207,7 +207,7 @@
             password: document.getElementById('password').value
         }
         var xhttp = new XMLHttpRequest()
-        xhttp.open('POST',serverURL+'/admin/auth/login',true)
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/auth/login',true)
         xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         xhttp.send(`username=${data.username}&password=${data.password}`)
         xhttp.onreadystatechange = function(){
@@ -217,7 +217,6 @@
                    return  alert(response.message)
                 }else{
                     localStorage.setItem('token',response.token)
-                    console.log(location)
                     location.href = jumpURL
                 }        
 			}
