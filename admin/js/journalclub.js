@@ -49,7 +49,7 @@ function getJClubData(form_id){
     var startTimeIncompleteString = form['search_startTime'].value.replace(/-/g,'/')
     var endTimeIncompleteString = form['search_endTime'].value.replace(/-/g,'/')
     //将日期补充天数和时间
-    var startTimeString = startTimeIncompleteString!='' ?  (new Date(startTimeIncompleteString)).toLocaleString() : '2022-1-1 0:00:00'
+    var startTimeString = startTimeIncompleteString!='' ?  (new Date(startTimeIncompleteString)).toLocaleString() : '0000-00-00 00:00:00'
     var  endTimeString = endTimeIncompleteString!='' ? ((endTimeIncompleteString)=>{
         endTimeValue = new Date(endTimeIncompleteString)
         endTimeValue.setMonth(endTimeValue.getMonth()+1)
