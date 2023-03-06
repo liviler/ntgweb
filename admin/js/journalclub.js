@@ -120,78 +120,69 @@ function renderToWebList(searchJClubData){
     }
 };
 
-(function deleteJCLubData(){
-    var button = document.getElementById('delete')
-    button.addEventListener('click',function(){
-       if(renderId && confirm('确定删除数据？')){
-            const message = `将要删除 '${searchJClubResult.filter(e => e.id = renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id = renderId)[0].title}' ` 
-            if(confirm(message)){            
-                xhttp = new XMLHttpRequest()
-                xhttp.open('POST',localStorage.getItem('apiURL')+'/deleteData/deleteJClub',true)
-                xhttp.onreadystatechange = function(){
-                    if(this.readyState == 4 && this.status ==200){
-                        response = JSON.parse(this.response)
-                        if(response.status){
-                        return  alert(response.message)
-                        }else{
-                            alert('删除成功！')
-                            document.getElementById(`${renderId}`).remove()
-                            renderId = null;
-
-                        } 
-                    }
-                }
-                xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhttp.setRequestHeader('Authorization', localStorage.getItem('token'))
-                xhttp.send(`id=${renderId}`);
-            }
-
-       }else if(!renderId){
-        alert('请选择删除项')
-       }
-
-    })
-})();
-
-(function updateJClubData(){
-    var button = document.getElementById('submit')
-    console.log(button)
-    button.addEventListener('click',function(){
-        if(renderId && confirm('确认提交修改后的数据？')){
-            const form = document.forms['displayJClub_form']
-            const form_data =
-                    `id=${renderId}&`+
-                    `title=${encodeURIComponent(form['jc_title'].value)}&`+
-                    `startTime=${form['jc_startTime'].value}&`+
-                    `endTime=${form['jc_endTime'].value}&`+
-                    `speaker=${encodeURIComponent(form['jc_speaker'].value)}&`+
-                    `room=${encodeURIComponent(form['jc_room'].value)}&`+
-                    `paperTitle=${encodeURIComponent(form['jc_paper_title'].value)}&`+
-                    `paperLink=${encodeURIComponent(form['jc_paper_link'].value)}&`+
-                    `paperAbstract=${encodeURIComponent(form['jc_paper_abstract'].value)}`
-            //发送请求
+function deleteJCLubData(){
+    if(renderId && confirm('确定删除数据？')){
+        const message = `将要删除 '${searchJClubResult.filter(e => e.id = renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id = renderId)[0].title}' ` 
+        if(confirm(message)){            
             xhttp = new XMLHttpRequest()
-            xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateJClub',true)
+            xhttp.open('POST',localStorage.getItem('apiURL')+'/deleteData/deleteJClub',true)
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status ==200){
                     response = JSON.parse(this.response)
                     if(response.status){
                     return  alert(response.message)
                     }else{
-                        alert("更新成功！")
-                        var updatedElement = document.getElementById(`${renderId}`)
-                        updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.slice(0,10)
-                        updatedElement.getElementsByClassName('speaker')[0].innerText = form['jc_speaker'].value
-                        updatedElement.getElementsByClassName('title')[0].innerText = form['jc_title'].value
+                        alert('删除成功！')
+                        document.getElementById(`${renderId}`).remove()
+                        renderId = null;
+
                     } 
                 }
             }
             xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
-            xhttp.send(form_data);
-        }else if(!renderId){
-            alert('请选择需要修改的项')
+            xhttp.setRequestHeader('Authorization', localStorage.getItem('token'))
+            xhttp.send(`id=${renderId}`);
         }
 
-    })
-})();
+    }else if(!renderId){
+    alert('请选择删除项')
+    }
+};
+
+function updateJClubData(){
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms['displayJClub_form']
+        const form_data =
+                `id=${renderId}&`+
+                `title=${encodeURIComponent(form['jc_title'].value)}&`+
+                `startTime=${form['jc_startTime'].value}&`+
+                `endTime=${form['jc_endTime'].value}&`+
+                `speaker=${encodeURIComponent(form['jc_speaker'].value)}&`+
+                `room=${encodeURIComponent(form['jc_room'].value)}&`+
+                `paperTitle=${encodeURIComponent(form['jc_paper_title'].value)}&`+
+                `paperLink=${encodeURIComponent(form['jc_paper_link'].value)}&`+
+                `paperAbstract=${encodeURIComponent(form['jc_paper_abstract'].value)}`
+        //发送请求
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateJClub',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                return  alert(response.message)
+                }else{
+                    alert("更新成功！")
+                    var updatedElement = document.getElementById(`${renderId}`)
+                    updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.slice(0,10)
+                    updatedElement.getElementsByClassName('speaker')[0].innerText = form['jc_speaker'].value
+                    updatedElement.getElementsByClassName('title')[0].innerText = form['jc_title'].value
+                } 
+            }
+        }
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(form_data);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
+    }
+};
