@@ -44,7 +44,7 @@ var renderId;
 
 function getJClubData(form_id){
     const form = document.forms[form_id]
-    var speakerString =  '%'+form['search_speaker'].value //%作为名字检索的通配符
+    var speakerString =  '%' + form['search_speaker'].value + '%' //%作为名字检索的通配符
     //获得的时间只有年份和月数
     var startTimeIncompleteString = form['search_startTime'].value.replace(/-/g,'/')
     var endTimeIncompleteString = form['search_endTime'].value.replace(/-/g,'/')
