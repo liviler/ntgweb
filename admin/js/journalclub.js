@@ -103,6 +103,7 @@ function renderToWebList(searchJClubData){
     for (let i =0;i<elements.length;i++){
         elements[i].addEventListener('click',function(){
             renderId = this.id
+            console.log('set renderId',renderId)
             elementData = searchJClubData.filter(e => e.id==renderId)[0]
             console.log(elementData)
             var displayJClubForm = document.getElementById('displayJClub_form')
@@ -159,7 +160,7 @@ function renderToWebList(searchJClubData){
         if(renderId && confirm('确认提交修改后的数据？')){
             const form = document.forms['displayJClub_form']
             const form_data =
-                    `id=${renderId}&`
+                    `id=${renderId}&`+
                     `title=${encodeURIComponent(form['jc_title'].value)}&`+
                     `startTime=${form['jc_startTime'].value}&`+
                     `endTime=${form['jc_endTime'].value}&`+
@@ -170,7 +171,7 @@ function renderToWebList(searchJClubData){
                     `paperAbstract=${encodeURIComponent(form['jc_paper_abstract'].value)}`
             //发送请求
             xhttp = new XMLHttpRequest()
-            xhttp.open('POST',localStorage.getItem('apiURL')+'',true)
+            xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateJClub',true)
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status ==200){
                     response = JSON.parse(this.response)
@@ -179,9 +180,9 @@ function renderToWebList(searchJClubData){
                     }else{
                         alert("更新成功！")
                         var updatedElement = document.getElementById(`${renderId}`)
-                        updatedElement.startTime = form['jc_startTime'].value
-                        updatedElement.speaker = form['jc_speaker'].value
-                        updatedElement.title = form['jc_title'].value
+                        updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.split(' ')[0]
+                        updatedElement.getElementsByClassName('speaker')[0].innerText = form['jc_speaker'].value
+                        updatedElement.getElementsByClassName('title')[0].innerText = form['jc_title'].value
                     } 
                 }
             }
