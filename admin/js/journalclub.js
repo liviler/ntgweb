@@ -54,7 +54,7 @@ function getJClubData(form_id){
         endTimeValue = new Date(endTimeIncompleteString)
         endTimeValue.setMonth(endTimeValue.getMonth()+1)
         return endTimeValue.toLocaleString()
-    })(endTimeIncompleteString) : (new Date()).toLocaleString()
+    })(endTimeIncompleteString) : '2100-00-00 00:00:00'
     const form_data=`speaker=${encodeURIComponent(speakerString)}&`+
                     `startTime=${encodeURIComponent(startTimeString)}&`+
                     `endTime=${encodeURIComponent(endTimeString)}`
@@ -180,7 +180,7 @@ function renderToWebList(searchJClubData){
                     }else{
                         alert("更新成功！")
                         var updatedElement = document.getElementById(`${renderId}`)
-                        updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.split(' ')[0]
+                        updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.slice(0,10)
                         updatedElement.getElementsByClassName('speaker')[0].innerText = form['jc_speaker'].value
                         updatedElement.getElementsByClassName('title')[0].innerText = form['jc_title'].value
                     } 
