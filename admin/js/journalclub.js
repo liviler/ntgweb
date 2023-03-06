@@ -124,27 +124,27 @@ function renderToWebList(searchJClubData){
     var button = document.getElementById('delete')
     button.addEventListener('click',function(){
        if(renderId && confirm('确定删除数据？')){
-        const message = `将要删除 '${searchJClubResult.filter(e => e.id = renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id = renderId)[0].title}' ` 
-        if(confirm(message)){            
-            xhttp = new XMLHttpRequest()
-            xhttp.open('POST',localStorage.getItem('apiURL')+'',true)
-            xhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status ==200){
-                    response = JSON.parse(this.response)
-                    if(response.status){
-                    return  alert(response.message)
-                    }else{
-                        alert('删除成功！')
-                        renderId = null;
-                        document.getElementById(`${renderId}`).remove()
+            const message = `将要删除 '${searchJClubResult.filter(e => e.id = renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id = renderId)[0].title}' ` 
+            if(confirm(message)){            
+                xhttp = new XMLHttpRequest()
+                xhttp.open('POST',localStorage.getItem('apiURL')+'/deleteData/deleteJClub',true)
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status ==200){
+                        response = JSON.parse(this.response)
+                        if(response.status){
+                        return  alert(response.message)
+                        }else{
+                            alert('删除成功！')
+                            document.getElementById(`${renderId}`).remove()
+                            renderId = null;
 
-                    } 
+                        } 
+                    }
                 }
+                xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhttp.setRequestHeader('Authorization', localStorage.getItem('token'))
+                xhttp.send(`id=${renderId}`);
             }
-            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhttp.setRequestHeader('Authentication', localStorage.token)
-            xhttp.send(renderId);
-        }
 
        }else if(!renderId){
         alert('请选择删除项')
