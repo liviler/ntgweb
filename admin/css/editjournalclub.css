@@ -150,14 +150,20 @@ main #displayJClub .button_event button {
   display: inline-block;
   margin: 20px;
 }
-main #displayJClub .button_event #edit {
-  background-color: #0085BD;
+main #displayJClub .button_event #delete {
+  background-color: red;
+}
+main #displayJClub .button_event #delete:active {
+  background-color: black;
 }
 main #displayJClub .button_event #submit {
   background-color: #45b536;
 }
+main #displayJClub .button_event #submit:active {
+  background-color: black;
+}
 main #jclubList {
-  width: 30%;
+  width: 40%;
   min-height: 200px;
   border-left: 1px solid #EAEDF1;
   padding-left: 10px;
@@ -168,24 +174,60 @@ main #jclubList h3 {
   text-align: center;
 }
 main #jclubList .search {
-  font-size: 16px;
-  line-height: 22px;
+  height: 40px;
+  font-size: 12px;
+  line-height: 40px;
   color: #5E6470;
-  margin: 10px;
+  padding: 10px;
+  border: 2px solid #666;
+  border-radius: 10px;
+}
+main #jclubList .search input {
+  width: 100px;
+  border-radius: 5px;
+  border: 2px solid #EAEDF1;
+  color: #999;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+main #jclubList .search #search_speaker {
+  width: 60px;
+}
+main #jclubList .search #search_button {
+  float: right;
+  height: 40px;
+  width: 45px;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+}
+main #jclubList .search #search_button:active {
+  background-color: gray;
 }
 main #jclubList .list {
   list-style: none;
   padding-left: 0px;
-  border: 1px solid #EAEDF1;
-  border-radius: 5px;
+  font-size: 14px;
 }
 main #jclubList .list li {
   margin-top: 10px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  border: 1px solid #EAEDF1;
+  border-radius: 10px;
 }
-main #jclubList .list li span {
+main #jclubList .list li div {
   margin-left: 5px;
+  display: inline-block;
+}
+main #jclubList .list li .startTime {
+  width: 80px;
+}
+main #jclubList .list li .speaker {
+  width: 50px;
 }
 main #jclubList .list li:hover {
-  border-bottom: 1px solid green;
+  border: 1px solid green;
   cursor: pointer;
 }

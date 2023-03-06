@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="../js/sideNav.js" type="module"></script>
     <link rel="stylesheet" href="../css/editjournalclub.css">
+    
 
 </head>
 <body>
@@ -56,7 +57,7 @@
             </form>
 
         <div class="button_event">
-            <button type="button" id="edit">修改</button>
+            <button type="button" id="delete">删除</button>
             <button type="button" id="submit">提交</button>
         </div>
         </div>
@@ -64,18 +65,16 @@
         <div id="jclubList">
             <h3>Journal Club List</h2>
             <div class="search">
-                <form>
-                    <label for="">报告人</label><input type="text" id="speaker" list="speaker_option">
-                    <label for="">时间</label><input type="month" id="time">
+                <form id="search_form">
+                    <label for="speaker">报告人:</label><input type="text" id="search_speaker" list="speaker_option">
+                    <label for="time">开始时间:</label><input type="month" id="search_startTime">
+                    <label for="time">结束时间:</label><input type="month" id="search_endTime">
+                    <button type="button" onclick="getJClubData('search_form')" id="search_button"><svg t="1677848406334" class="icon" viewBox="0 0 1036 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2888" width="20" height="20"><path d="M1036.303023 935.288732l-88.711269 88.711268-217.439737-214.266852C653.420008 869.499937 558.103959 906.53851 453.269255 906.53851a453.269255 453.269255 0 1 1 453.269255-453.269255 449.772607 449.772607 0 0 1-88.51701 266.910839l218.281523 215.108638zM453.269255 129.505501a323.763754 323.763754 0 1 0 0.064753 647.59226A323.763754 323.763754 0 0 0 453.269255 129.505501z" fill="#97A6BB" p-id="2889"></path></svg>
+                    </button>
                 </form>
-            </div>
-
-            <ul class="list">
-                <li id="1"><span>2022-5-20</span><span>李义</span><span>Say hello to you</span></li>
-                <li id="2"><span>2022-5-20</span><span>李义</span><span>Say hello to you</span></li>
-                <li id="3"><span>2022-5-20</span><span>李义</span><span>Say hello to you</span></li>
-                <li id="4"><span>2022-5-20</span><span>李义</span><span>Say hello to you</span></li>
-                <li id="5"><span>2022-5-20</span><span>李义</span><span>Say hello to you</span></li>
+                
+            </div>  
+            <ul class="list" id="dataRender">
             </ul>
         </div>
 
@@ -83,5 +82,7 @@
 
     </main>
     
+
+    <script src="../js/journalclub.js"></script>
 </body>
 </html>

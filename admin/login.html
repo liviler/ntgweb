@@ -202,26 +202,26 @@
 		localStorage.setItem('apiURL','http://itp.usys.ac.cn:3333')
 		const jumpURL =  '/admin/index.html'
   		document.getElementById('submit').addEventListener('click',()=>{
-        const data = {
-            username: document.getElementById('username').value,
-            password: document.getElementById('password').value
-        }
-        var xhttp = new XMLHttpRequest()
-        xhttp.open('POST',localStorage.getItem('apiURL')+'/auth/login',true)
-        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-        xhttp.send(`username=${data.username}&password=${data.password}`)
-        xhttp.onreadystatechange = function(){
-            if(this.readyState ==4 && this.status ==200){
-                response = JSON.parse(this.response)
-                if(response.status){
-                   return  alert(response.message)
-                }else{
-                    localStorage.setItem('token',response.token)
-                    location.href = jumpURL
-                }        
+			const data = {
+				username: document.getElementById('username').value,
+				password: document.getElementById('password').value
 			}
-        }
-	    })
+			var xhttp = new XMLHttpRequest()
+			xhttp.open('POST',localStorage.getItem('apiURL')+'/auth/login',true)
+			xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+			xhttp.send(`username=${data.username}&password=${data.password}`)
+			xhttp.onreadystatechange = function(){
+				if(this.readyState ==4 && this.status ==200){
+					response = JSON.parse(this.response)
+					if(response.status){
+					return  alert(response.message)
+					}else{
+						localStorage.setItem('token',response.token)
+						location.href = jumpURL
+					}        
+				}
+			}			
+		})
     </script>
 </body>
 </html>

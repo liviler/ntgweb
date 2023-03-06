@@ -130,18 +130,24 @@ main{
                 display: inline-block;
                 margin: 20px;
             }
-            #edit{
-                background-color: @button-color-edit;
+            #delete{
+                background-color: @button-color-delete;
+            }
+            #delete:active{
+                background-color:black;
             }
             #submit{
                 background-color: @button-color-submit;
+            }
+            #submit:active{
+                background-color: black;;
             }
 
         }
     }
 
     #jclubList{
-        width: 30%;
+        width: 40%;
         min-height: 200px;
         border-left: 1px solid @border-color;
         padding-left: 10px;
@@ -153,25 +159,70 @@ main{
         }
                 
         .search{
-            font-size: 16px;
-            line-height: 22px;
+            // width: 100%;
+            height: 40px;
+            font-size: 12px;
+            line-height: 40px;
             color:@search-text-color;
-            margin: 10px;
+            padding: 10px;
+            border: 2px solid #666;
+            border-radius: 10px;
+            input{
+                width: 100px;
+                border-radius: 5px;
+                border: 2px solid @border-color;
+                color:#999;
+                margin-right: 15px;
+                margin-left: 5px;
+            }
+            #search_speaker{
+                width: 60px;
+            }
+            #search_button{
+                float: right;
+                // background-color: @button-color-submit;
+                height: 40px;
+                width: 45px;
+                border: none;
+                color: #fff;
+                border-radius: 10px;
+            }
+            #search_button:active{
+                background-color: gray;
+
+            }
+
         }
         .list{
             list-style: none;
             padding-left: 0px;
-            border: 1px solid @border-color;
-            border-radius: 5px;
+            // border: 1px solid @border-color;
+            // border-radius: 5px;
+            font-size: 14px;
             li{
                 // border-bottom:1px solid @border-color;
                 margin-top: 10px;
-                span{
-                    margin-left: 5px;
+                height: 30px;
+                line-height: 30px;
+                overflow: hidden;
+                border: 1px solid @border-color;
+                border-radius: 10px;
+                div{
+                    margin-left: 5px;     
+                    display: inline-block;
+                }
+                .startTime{
+                    width: 80px;
+                    // background-color: antiquewhite;
+
+                }
+                .speaker{
+                    width: 50px;
+                    // background-color: aqua;
                 }
             }
             li:hover{
-                border-bottom: 1px solid green;
+                border: 1px solid green;
                 cursor: pointer;
             }
         }
