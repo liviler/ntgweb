@@ -39,6 +39,37 @@ function addJClubData(form_id){
     xhttp.send(form_data);
 }
 
+function addJClubDataWithFile(form_id){
+    const form = document.forms[form_id]
+    var formData = new FormData()
+    formData.append('title',form['jc_title'].value)
+    formData.append('startTime',form['jc_startTime'].value)
+    formData.append('endTime',form['jc_endTime'].value)
+    formData.append('speaker',form['jc_speaker'].value)
+    formData.append('room',form['jc_room'].value)
+    console.log('fileData:',form['jc_ppt'].files[0])
+    formData.append('ppt',form['jc_ppt'].files[0])
+    formData.append('paperTitle',form['jc_paper_title'].value)
+    formData.append('paperLink',form['jc_paper_link'].value)
+    formData.append('paperAbstract',form['jc_paper_abstract'].value)
+    //发送请求
+    xhttp = new XMLHttpRequest()
+    xhttp.open('POST',localStorage.getItem('apiURL')+'/addData/addJClubWithFile',true)
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status ==200){
+            response = JSON.parse(this.response)
+            if(response.status){
+            return  alert(response.message)
+            }else{
+                alert(response.message)
+            } 
+        }
+    }
+    // xhttp.setRequestHeader('Content-Type', 'multipart/form-data');
+    xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+    xhttp.send(formData);
+}
+
 var searchJClubResult;
 var renderId;
 
@@ -93,7 +124,7 @@ function renderToWebList(searchJClubData){
         <li class="element" id=${element.id}>
             <div class="startTime">${element.startTime.split(' ')[0]}</div>
             <div class="speaker">${element.speaker}</div>
-            <div class="title">${element.title.length<55 ? element.title : element.title.slice(0,56)+'...'}</div>  
+            <div class="title">${element.title.length<55 ? element.title : element.title.slice(0,55)+'...'}</div>  
         </li>  
     `)
 

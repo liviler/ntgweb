@@ -32,6 +32,10 @@
                 <label for="jc_room">地点</label>
                 <div class="input"><input type="text" id="jc_room"></div>
             </div>
+            <div class="item">
+                <label for="jc_ppt">报告PPT</label>
+                <div class="input"><input type="file" id="jc_ppt"></div>
+            </div>
             
             <h3 style="text-align: center;">论文信息</h3>
 
@@ -57,7 +61,7 @@
                 <option value="cc">
             </datalist>
 
-            <button type='button' onclick="addJClubData('addJClub_form')">提交</button><br>
+            <button type='button' onclick="addJClubDataWithFile('addJClub_form')">提交</button><br>
         </form>
     </div>
    </main>
