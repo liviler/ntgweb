@@ -199,7 +199,7 @@
 	</div>
 
     <script>
-		localStorage.setItem('apiURL','http://itp.usys.ac.cn:3333')
+		localStorage.setItem('apiURL',`http://${document.domain}:3333`)
 		const jumpURL =  '/admin/index.html'
   		document.getElementById('submit').addEventListener('click',()=>{
 			const data = {
