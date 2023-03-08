@@ -163,12 +163,6 @@ main .exhibition .spare-time {
   line-height: 45px;
   font-size: 20px;
 }
-.journalclub ul li::after {
-  content: ' ...';
-  display: block;
-  float: right;
-  font-size: 14px;
-}
 .journalclub ul li::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
   font-weight: 400;
