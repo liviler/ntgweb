@@ -5,6 +5,8 @@ function contentRender(year){
     //切换导航栏年份背景色
     document.getElementById(`${tmpActiveYear}`).setAttribute('class','')
     document.getElementById(`${year}`).setAttribute('class','active')
+    tmpActiveYear = year
+    console.log(year,"被设置为actvie")
 
     //渲染数据到内容区
     var renderPlace = document.getElementById('renderPlace')
@@ -40,6 +42,7 @@ function journalclubPageRender(){
             <li onclick="contentRender(${i})" id="${i}">${i}</li>\n`
         }
        document.getElementById('years-nav').innerHTML = navHTMLToBeRender
+       console.log(navHTMLToBeRender)
        contentRender(tmpActiveYear)
     });
 

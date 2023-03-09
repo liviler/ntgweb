@@ -3,39 +3,24 @@ main {
   background-color: #f6f6f6;
 }
 main .content {
-  min-height: 550px;
+  min-height: 700px;
 }
-main .content input {
-  display: none;
-}
-main .content .years-nav {
+main .content #years-nav {
   height: 60px;
   background-color: #fff;
   padding-top: 5px;
   margin-bottom: 40px;
-}
-main .content .years-nav ul {
-  height: 60px;
   font-size: 20px;
   color: #666;
 }
-main .content .years-nav ul li {
+main .content #years-nav li {
   float: left;
   margin-left: 20px;
-}
-main .content .years-nav ul li label {
   line-height: 60px;
-  display: block;
   padding-left: 20px;
   padding-right: 20px;
 }
-.journal-club .content-items-all {
-  overflow: hidden;
-  width: 1200px;
-  display: flex;
-  flex-wrap: nowrap;
-}
-.journal-club .content-items-all .year-items {
+.journal-club #renderPlace {
   flex-shrink: 0;
   width: 1200px;
   display: flex;
@@ -43,7 +28,7 @@ main .content .years-nav ul li label {
   justify-content: space-between;
   align-content: flex-start;
 }
-.journal-club .content-items-all .year-items > div {
+.journal-club #renderPlace > div {
   flex-shrink: 0;
   width: 500px;
   height: 200px;
@@ -53,22 +38,22 @@ main .content .years-nav ul li label {
   box-shadow: 0px 10px 20px #999;
   overflow: hidden;
 }
-.journal-club .content-items-all .year-items > div a {
+.journal-club #renderPlace > div a {
   display: block;
 }
-.journal-club .content-items-all .year-items > div div {
+.journal-club #renderPlace > div div {
   color: #666;
   font-size: 18px;
   margin-bottom: 5px;
 }
-.journal-club .content-items-all .year-items > div .title {
+.journal-club #renderPlace > div .title {
   height: 80px;
   font-size: 18px;
   display: flex;
   align-items: center;
   padding: 0 5px;
 }
-.journal-club .content-items-all .year-items > div .time::before {
+.journal-club #renderPlace > div .time::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
   font-weight: 600;
   content: '\f133';
@@ -76,7 +61,7 @@ main .content .years-nav ul li label {
   display: inline-block;
   margin: 0 5px;
 }
-.journal-club .content-items-all .year-items > div .speaker::before {
+.journal-club #renderPlace > div .speaker::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
   font-weight: 600;
   content: '\f007';
@@ -84,7 +69,7 @@ main .content .years-nav ul li label {
   display: inline-block;
   margin: 0 5px;
 }
-.journal-club .content-items-all .year-items > div .location::before {
+.journal-club #renderPlace > div .location::before {
   font-family: 'Font Awesome 6 Brands', 'Font Awesome 6 Free';
   font-weight: 600;
   content: '\f124';
@@ -92,22 +77,20 @@ main .content .years-nav ul li label {
   display: inline-block;
   margin: 0 5px;
 }
-.journal-club input[type="radio"]:nth-of-type(1):checked ~ .years-nav ul li:nth-of-type(1),
-.journal-club input[type="radio"]:nth-of-type(2):checked ~ .years-nav ul li:nth-of-type(2),
-.journal-club input[type="radio"]:nth-of-type(3):checked ~ .years-nav ul li:nth-of-type(3) {
+.journal-club #renderPlace .title {
   background-color: #005826;
   color: #fff;
 }
-.journal-club .years-nav li:hover {
+.journal-club #renderPlace > div div::before {
+  color: #005826;
+}
+.journal-club #years-nav .active {
+  background-color: #005826;
+  color: #fff;
+}
+.journal-club #years-nav li:hover {
   background-color: #40735d;
   color: #fff;
-}
-.journal-club .content-items-all > .year-items .title {
-  background-color: #005826;
-  color: #fff;
-}
-.journal-club .content-items-all > .year-items > div div::before {
-  color: #005826;
 }
 .report .content-items-all {
   overflow: hidden;
@@ -259,20 +242,4 @@ main .content .years-nav ul li label {
 }
 .conference .content-items-all > .year-items > div div::before {
   color: #1a64a0;
-}
-.content .year-items {
-  transition: 1s transform ease-in-out;
-}
-.content .content-items-all > .year-items > div:hover {
-  transition: transform 0.5s ease-in;
-  transform: scale(1.1);
-}
-.content input[type="radio"]:nth-of-type(1):checked ~ .content-items-all .year-items {
-  transform: translateX(0%);
-}
-.content input[type="radio"]:nth-of-type(2):checked ~ .content-items-all .year-items {
-  transform: translateX(-100%);
-}
-.content input[type="radio"]:nth-of-type(3):checked ~ .content-items-all .year-items {
-  transform: translateX(-200%);
 }
