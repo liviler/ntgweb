@@ -11,7 +11,7 @@ window.addEventListener('load',function(){
                 return bTime.getTime() - aTime.getTime()
 
             })
-
+            date = data.slice(0,8)
             var renderContentsArray =  data.map(e=>`
                 <li>
                     <a href="/article/journalclub/${e.id}.html" >

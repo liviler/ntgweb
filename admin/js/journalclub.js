@@ -144,6 +144,13 @@ function renderToWebList(searchJClubData){
             displayJClubForm.jc_endTime.value= elementData.endTime
             displayJClubForm.jc_speaker.value= elementData.speaker
             displayJClubForm.jc_room.value= elementData.room
+            if(elementData.pptname){
+                displayJClubForm.jc_ppt.type = 'text'
+                displayJClubForm.jc_ppt.value = `已有文件${elementData.pptname},点击重新上传文件。`
+                displayJClubForm.jc_ppt.addEventListener('click',function(){
+                    this.type = "file"
+                })
+            }
             displayJClubForm.jc_paper_title.value= elementData.paperTitle
             displayJClubForm.jc_paper_link.value= elementData.paperLink
             displayJClubForm.jc_paper_abstract.value= elementData.paperAbstract
@@ -213,6 +220,48 @@ function updateJClubData(){
         xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
         xhttp.send(form_data);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
+    }
+};
+
+function updateJClubDataWithFile(){
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms['displayJClub_form']
+        var formData = new FormData()
+        formData.append('id',renderId)
+        formData.append('title',form['jc_title'].value)
+        formData.append('startTime',form['jc_startTime'].value)
+        formData.append('endTime',form['jc_endTime'].value)
+        formData.append('speaker',form['jc_speaker'].value)
+        formData.append('room',form['jc_room'].value)
+        // console.log('fileData:',form['jc_ppt'].files[0])
+        formData.append('paperTitle',form['jc_paper_title'].value)
+        formData.append('paperLink',form['jc_paper_link'].value)
+        formData.append('paperAbstract',form['jc_paper_abstract'].value)
+        formData.append('pptname',searchJClubResult.filter(e => e.id==renderId)[0].pptname)
+        formData.append('ppt',form['jc_ppt'].files ? form['jc_ppt'].files[0] : '')
+        // console.log(formData.ppt,formData.paperLink)
+        //发送请求
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateJClubWithFIle',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                return  alert(response.message)
+                }else{
+                    alert("更新成功！")
+                    var updatedElement = document.getElementById(`${renderId}`)
+                    updatedElement.getElementsByClassName('startTime')[0].innerText = form['jc_startTime'].value.slice(0,10)
+                    updatedElement.getElementsByClassName('speaker')[0].innerText = form['jc_speaker'].value
+                    updatedElement.getElementsByClassName('title')[0].innerText = form['jc_title'].value
+                } 
+            }
+        }
+        // xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(formData);
     }else if(!renderId){
         alert('请选择需要修改的项')
     }

@@ -31,6 +31,10 @@
                     <label for="jc_room">地点</label>
                     <div class="input"><input type="text" id="jc_room"></div>
                 </div>
+                <div class="item">
+                    <label for="jc_ppt">报告PPT</label>
+                    <div class="input"><input type="file" id="jc_ppt"></div>
+                </div>
                 
                 <h3>论文信息</h3>
     
@@ -58,7 +62,7 @@
 
         <div class="button_event">
             <button type="button" id="delete" onclick="deleteJClubData()">删除</button>
-            <button type="button" id="submit" onclick="updateJClubData()">提交</button>
+            <button type="button" id="submit" onclick="updateJClubDataWithFile()">提交</button>
         </div>
         </div>
 

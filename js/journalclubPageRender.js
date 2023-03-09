@@ -18,9 +18,9 @@ function contentRender(year){
     })
     var renderContentsArray =  dataInInputYear.map(e=>`
         <div>
-            <a href="/article/journal-club/${e.id}.html">
+            <a href="/article/journalclub/${e.id}.html">
             <div class="title">${e.title}</div>
-            <div class="time">${e.startTime} ~ ${e.endTime}</div>
+            <div class="time">${e.startTime.replace('T',' ')} ~ ${e.endTimereplace('T',' ')}</div>
             <div class="speaker">${e.speaker}</div>
             <div class="location">${e.room}</div>
             </a>
