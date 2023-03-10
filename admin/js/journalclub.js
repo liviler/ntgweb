@@ -150,6 +150,8 @@ function renderToWebList(searchJClubData){
                 displayJClubForm.jc_ppt.addEventListener('click',function(){
                     this.type = "file"
                 })
+            }else{
+                displayJClubForm.jc_ppt.type = 'file'
             }
             displayJClubForm.jc_paper_title.value= elementData.paperTitle
             displayJClubForm.jc_paper_link.value= elementData.paperLink
