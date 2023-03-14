@@ -39,8 +39,6 @@ main{
 
 
 .journal-club{
-
-
     #renderPlace{
         flex-shrink: 0;
         width: @web-width;
@@ -143,102 +141,80 @@ main{
 
 .report{
 
-    .content-items-all{
-        overflow: hidden;
+    #renderPlace{
+        flex-shrink: 0;
         width: @web-width;
         display: flex;
-        flex-wrap: nowrap;
-
-        .year-items{
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        &>div{
             flex-shrink: 0;
-            width: @web-width;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: flex-start;
-            &>div{
-                flex-shrink: 0;
-                width: 500px;
-                height: 220px;
-                background-color:#fff;
-                margin:20px 30px;
-                border-radius:2%;
-                box-shadow: 0px 10px 20px #999;
-                overflow: hidden;
-                a{
-                    display: block;
-                }
-                & div{
-                    color: #666;
-                    font-size: 18px;
-                    margin-bottom: 5px;
-                }
-                .title{
-                    height: 80px;
-                    color: #fff;
-                    font-size: 18px;
-                    display: flex;
-                    align-items: center;
-                    padding: 0 5px;
-                }
-
-                .time{
-                    &::before{
-                        content:'时间：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                }
-
-                .speaker{
-                    &::before{
-                        content: '报告人：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                }
-
-                .location{
-                    &::before{
-                        content: '地点：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                    
-                }
-                    
-                .inviter{
-                    &::before{
-                        content: '邀请人：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                    
-                }
-
+            width: 500px;
+            height: 220px;
+            background-color:#fff;
+            margin:20px 30px;
+            border-radius:2%;
+            box-shadow: 0px 10px 20px #999;
+            overflow: hidden;
+            a{
+                display: block;
             }
+            & div{
+                color: #666;
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+            .title{
+                height: 80px;
+                color: #fff;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                padding: 0 5px;
+            }
+
+            .time{
+                &::before{
+                    content:'时间：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+            }
+
+            .speaker{
+                &::before{
+                    content: '报告人：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+            }
+
+            .location{
+                &::before{
+                    content: '地点：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+                
+            }
+                
+            .inviter{
+                &::before{
+                    content: '邀请人：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+                
+            }
+
         }
     }
-    //被选中的年份 背景颜色设置
-    input[type="radio"]:nth-of-type(1):checked  ~ .years-nav ul li:nth-of-type(1),
-    input[type="radio"]:nth-of-type(2):checked  ~ .years-nav ul li:nth-of-type(2),
-    input[type="radio"]:nth-of-type(3):checked  ~ .years-nav ul li:nth-of-type(3)
-    {
-        background-color:@report-color;
-        color: #fff;
-    }
-
-    //hover年份导航栏背景颜色
-    .years-nav li:hover{
-        background-color:@report-hover-color;
-        color: #fff;
-    }
-
-    .content-items-all>.year-items{
+    #renderPlace{
         // 卡片标题背景色
         .title{
         background-color:@report-color;
@@ -250,87 +226,82 @@ main{
         }
 
     }
-}
 
-.conference{
-    .content-items-all{
-        overflow: hidden;
-        width: @web-width;
-        display: flex;
-        flex-wrap: nowrap;
-
-        .year-items{
-            flex-shrink: 0;
-            width: @web-width;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: flex-start;
-            &>div{
-                flex-shrink: 0;
-                width: 500px;
-                height: 220px;
-                background-color:#fff;
-                margin:20px 30px;
-                border-radius:2%;
-                box-shadow: 0px 10px 20px #999;
-                overflow: hidden;
-                a{
-                    display: block;
-                }
-                & div{
-                    color: #666;
-                    font-size: 18px;
-                    margin-bottom: 5px;
-                }
-                .title{
-                    text-align: justify;
-                    height: 120px;
-                    color: #fff;
-                    font-size: 18px;
-                    display: flex;
-                    align-items: center;
-                    padding: 0 5px;
-                }
-
-                .time{
-                    &::before{
-                        content:'时间：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                }
-
-                .location{
-                    &::before{
-                        content: '地点：';
-                        font-size: 18px;
-                        display: inline-block;
-                        margin: 0 5px;
-                    }
-                    
-                }
-
-            }
-        }
-    }
+    
     //被选中的年份 背景颜色设置
-    input[type="radio"]:nth-of-type(1):checked  ~ .years-nav ul li:nth-of-type(1),
-    input[type="radio"]:nth-of-type(2):checked  ~ .years-nav ul li:nth-of-type(2),
-    input[type="radio"]:nth-of-type(3):checked  ~ .years-nav ul li:nth-of-type(3)
+    #years-nav .active
     {
-        background-color:@conference-color;
+        background-color:@report-color;
         color: #fff;
     }
 
     //hover年份导航栏背景颜色
-    .years-nav li:hover{
-        background-color:@conference-hover-color;
+    #years-nav li:hover{
+        background-color:@report-hover-color;
         color: #fff;
     }
 
-    .content-items-all>.year-items{
+  
+}
+
+.conference{
+    #renderPlace{
+        flex-shrink: 0;
+        width: @web-width;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        &>div{
+            flex-shrink: 0;
+            width: 500px;
+            height: 220px;
+            background-color:#fff;
+            margin:20px 30px;
+            border-radius:2%;
+            box-shadow: 0px 10px 20px #999;
+            overflow: hidden;
+            a{
+                display: block;
+            }
+            & div{
+                color: #666;
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+            .title{
+                text-align: justify;
+                height: 120px;
+                color: #fff;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                padding: 0 5px;
+            }
+
+            .time{
+                &::before{
+                    content:'时间：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+            }
+
+            .location{
+                &::before{
+                    content: '地点：';
+                    font-size: 18px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+                
+            }
+
+        }
+    }
+    
+    #renderPlace{
         // 卡片标题背景色
         .title{
         background-color:@conference-color;
@@ -342,6 +313,18 @@ main{
         }
 
     }
+   
+    //被选中的年份 背景颜色设置
+    #years-nav .active{
+        background-color:@conference-color;
+        color: #fff;
+    }
+    //hover年份导航栏背景颜色
+    #years-nav li:hover{
+        background-color:@conference-hover-color;
+        color: #fff;
+    }
+
 }
 
 
