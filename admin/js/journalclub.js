@@ -99,9 +99,9 @@ function getJClubData(form_id){
             return  alert(response.message)
             }else{
                searchJClubResult = response.data;
-               console.log(searchJClubResult)
+            //    console.log(searchJClubResult)
                renderToWebList(searchJClubResult)
-               console.log('render finished!')
+            //    console.log('render finished!')
             } 
         }
     }
