@@ -64,7 +64,7 @@ function renderToList(data){
             var form = document.getElementById('editConference_form')
             //点击更改信息页各项信息
             form.title.value= elementData.title
-            form.satrtTime.value= elementData.satrtTime
+            form.startTime.value= elementData.startTime
             form.endTime.value= elementData.endTime
             form.location.value= elementData.location
             form.link.value= elementData.link
@@ -73,13 +73,14 @@ function renderToList(data){
 }
 
 function updateConference(){
+    const form = document.forms['editConference_form']
     const formData =
     `id=${renderId}&`+
     `title=${encodeURIComponent(form['title'].value)}&`+
-    `satrtTime=${form['satrtTime'].value}&`+
+    `startTime=${form['startTime'].value}&`+
     `endTime=${form['endTime'].value}&`+
     `location=${form['location'].value}&`+
-    `link=${encodeURIComponent(form['link'].value)}&`
+    `link=${encodeURIComponent(form['link'].value)}`
 
     xhttp = new XMLHttpRequest()
     xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateConference',true)
@@ -97,3 +98,4 @@ function updateConference(){
     xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
     xhttp.send(formData);
 }
+

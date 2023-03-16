@@ -68,10 +68,10 @@ nav .top-nav > ul .home i {
   padding-right: 6px;
 }
 nav #login {
-  font-size: 14px;
+  font-size: 18px;
 }
 nav #login a {
-  color: #fff;
+  color: #ddd;
 }
 .top-nav .more {
   overflow: hidden;

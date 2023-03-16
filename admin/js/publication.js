@@ -93,7 +93,7 @@ function updatePublication(){
     formData.append('journal',form['journal'].value)
     formData.append('arxiv',form['arxiv'].value)
     formData.append('doi',form['doi'].value)
-    formData.append('pdf',form['pdf'].files[0])
+    formData.append('pdf',form['pdf'].files ? form['pdf'].files[0]:'')
 
     xhttp = new XMLHttpRequest()
     xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updatePublicationDataWithFile',true)
