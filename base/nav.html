@@ -30,5 +30,11 @@
 
         <li id="login"><a href="/admin/login.html">Login</a></li>
     </ul>
+    <script>
+        console.log('hidden')
+        if(document.location.hostname == 'ntg.usys.ac.cn'){
+            document.getElementById('login').hidden = true
+        }
+    </script>
 
 </div>
