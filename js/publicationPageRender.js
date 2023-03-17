@@ -2,7 +2,6 @@ const startYear = 2020
 var currYear = new Date().getFullYear()
 
 function render(data){
-    console.log(data)
     var navList = document.getElementById('yearNav')
     var renderPlace = document.getElementById('renderPlace')
 
@@ -13,14 +12,12 @@ function render(data){
         yearArry.push(`${i}`)
     }
     navList.innerHTML = navHTML.join('\n')
-    console.log(yearArry)
     var renderArry = []
     for(let i=0; i< yearArry.length; i++){
         var year = yearArry[i]
-        console.log(year)
         var tmpdata = data.filter(e=>e.year==year)
         tmpdata.sort((a,b)=>Number(b.id) -Number(a.id))
-        var divinnerHTML = `<div id='${year}'>\n<span>${year}:</span>\n`
+        var divinnerHTML = `<div id=${year}>\n<span>${year}:</span>\n`
         for(let i=0; i < tmpdata.length; i++){
             var e = tmpdata[i]
             var tmpLink = ''
@@ -28,21 +25,17 @@ function render(data){
             if(e.arxiv) tmpLink+=`<a href="${e.arxiv}" class="arxiv"></a>\n`
             if(e.pdfname) tmpLink+=`<a href="/article/publication/files/${e.pdfname}" class="pdf"></a>\n`
             divinnerHTML +=`
-            
                 <ul>
                     <li class="title">${e.title}</li>
-                    <li class="authors">${e.authors}</li>
+                    <li class="authors">${e.author}</li>
                     <li class="journal">${e.journal}</li>
                     <li class="link">${tmpLink}</li>
-                </ul>
-            </div>\n
+                </ul>\n
             `
         }
         divinnerHTML+='</div>'
-        // console.log(div)
         renderArry.push(divinnerHTML)
     }
-    console.log(renderArry)
     renderPlace.innerHTML = renderArry.join('\n')
 }
 
