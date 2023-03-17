@@ -133,7 +133,7 @@ main .exhibition .spare-time {
 }
 .news ul li .text .time {
   box-sizing: border-box;
-  width: 84px;
+  width: 88px;
   float: right;
   background-color: #2a7343;
   color: #fff;
@@ -141,7 +141,7 @@ main .exhibition .spare-time {
   padding: 0 5px;
 }
 .news ul li .text .title {
-  width: 516px;
+  width: 512px;
   float: right;
   background-color: #f4f4f4;
   height: 40px;
