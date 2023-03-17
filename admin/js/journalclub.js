@@ -160,9 +160,9 @@ function renderToWebList(searchJClubData){
     }
 };
 
-function deleteJCLubData(){
+function deleteJClubData(){
     if(renderId && confirm('确定删除数据？')){
-        const message = `将要删除 '${searchJClubResult.filter(e => e.id = renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id = renderId)[0].title}' ` 
+        const message = `将要删除 '${searchJClubResult.filter(e => e.id == renderId)[0].speaker}' 的 '${searchJClubResult.filter(e => e.id == renderId)[0].title}' ` 
         if(confirm(message)){            
             xhttp = new XMLHttpRequest()
             xhttp.open('POST',localStorage.getItem('apiURL')+'/deleteData/deleteJClub',true)

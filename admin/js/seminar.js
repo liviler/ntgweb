@@ -97,31 +97,35 @@ function renderToList(data){
 }
 
 function updateSeminar(){
-    const form = document.forms["editSeminar_form"]
-    var formData = new FormData()
-    formData.append('id',renderId)
-    formData.append('title',form['title'].value)
-    formData.append('reporter',form['reporter'].value)
-    formData.append('inviter',form['inviter'].value)
-    formData.append('startTime',form['startTime'].value)
-    formData.append('endTime',form['endTime'].value)
-    formData.append('room',form['room'].value)
-    formData.append('img',form['img'].files ? form['img'].files[0]:'')
-    formData.append('ppt',form['ppt'].files ? form['ppt'].files[0]:'')
-    xhttp = new XMLHttpRequest()
-    xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateSeminarWithFile',true)
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status ==200){
-            response = JSON.parse(this.response)
-            if(response.status){
-                alert(response.message)
-            }else{
-                alert(response.message)
-                // console.log(response.message)
-            } 
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms["editSeminar_form"]
+        var formData = new FormData()
+        formData.append('id',renderId)
+        formData.append('title',form['title'].value)
+        formData.append('reporter',form['reporter'].value)
+        formData.append('inviter',form['inviter'].value)
+        formData.append('startTime',form['startTime'].value)
+        formData.append('endTime',form['endTime'].value)
+        formData.append('room',form['room'].value)
+        formData.append('img',form['img'].files ? form['img'].files[0]:'')
+        formData.append('ppt',form['ppt'].files ? form['ppt'].files[0]:'')
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateSeminarWithFile',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                    alert(response.message)
+                }else{
+                    alert(response.message)
+                    // console.log(response.message)
+                } 
+            }
         }
+        // xhttp.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(formData);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
     }
-    // xhttp.setRequestHeader('Content-Type', 'multipart/form-data');
-    xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
-    xhttp.send(formData);
 }

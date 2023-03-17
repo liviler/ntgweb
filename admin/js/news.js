@@ -46,7 +46,7 @@ function addNewsData(form_id){
     const formData =
     `title=${encodeURIComponent(form['news_title'].value)}&`+
     `time=${form['news_time'].value}&`+
-    `link=${form['news_link'].value}&`+
+    `link=${encodeURIComponent(form['news_link'].value)}&`+
     `content=${encodeURIComponent(form['news_content'].value)}&`
 
     xhttp = new XMLHttpRequest()
@@ -117,29 +117,33 @@ function renderToList(data){
 }
 
 function updateNews(){
-    const form = document.forms['editNews_form']
-    const formData =
-    `id=${renderId}&`+
-    `title=${encodeURIComponent(form['news_title'].value)}&`+
-    `time=${form['news_time'].value}&`+
-    `link=${form['news_link'].value}&`+
-    `content=${encodeURIComponent(form['news_content'].value)}&`
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms['editNews_form']
+        const formData =
+        `id=${renderId}&`+
+        `title=${encodeURIComponent(form['news_title'].value)}&`+
+        `time=${form['news_time'].value}&`+
+        `link=${form['news_link'].value}&`+
+        `content=${encodeURIComponent(form['news_content'].value)}&`
 
-    xhttp = new XMLHttpRequest()
-    xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateNews',true)
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status ==200){
-            response = JSON.parse(this.response)
-            if(response.status){
-            return  alert(response.message)
-            }else{
-                alert(response.message)
-            } 
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateNews',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                return  alert(response.message)
+                }else{
+                    alert(response.message)
+                } 
+            }
         }
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(formData);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
     }
-    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
-    xhttp.send(formData);
 }
 
 function deleteNewsData(){

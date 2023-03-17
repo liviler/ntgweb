@@ -84,30 +84,34 @@ function renderToList(data){
 }
 
 function updatePublication(){
-    const form = document.forms['editPublication_form']
-    var formData = new FormData()
-    formData.append('id',renderId)
-    formData.append('year',form['year'].value)
-    formData.append('title',form['title'].value)
-    formData.append('author',form['author'].value)
-    formData.append('journal',form['journal'].value)
-    formData.append('arxiv',form['arxiv'].value)
-    formData.append('doi',form['doi'].value)
-    formData.append('pdf',form['pdf'].files ? form['pdf'].files[0]:'')
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms['editPublication_form']
+        var formData = new FormData()
+        formData.append('id',renderId)
+        formData.append('year',form['year'].value)
+        formData.append('title',form['title'].value)
+        formData.append('author',form['author'].value)
+        formData.append('journal',form['journal'].value)
+        formData.append('arxiv',form['arxiv'].value)
+        formData.append('doi',form['doi'].value)
+        formData.append('pdf',form['pdf'].files ? form['pdf'].files[0]:'')
 
-    xhttp = new XMLHttpRequest()
-    xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updatePublicationDataWithFile',true)
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status ==200){
-            response = JSON.parse(this.response)
-            if(response.status){
-            return  alert(response.message)
-            }else{
-                alert(response.message)
-            } 
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updatePublicationDataWithFile',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                return  alert(response.message)
+                }else{
+                    alert(response.message)
+                } 
+            }
         }
+        // xhttp.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(formData);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
     }
-    // xhttp.setRequestHeader('Content-Type', 'multipart/form-data');
-    xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
-    xhttp.send(formData);
 }

@@ -73,29 +73,33 @@ function renderToList(data){
 }
 
 function updateConference(){
-    const form = document.forms['editConference_form']
-    const formData =
-    `id=${renderId}&`+
-    `title=${encodeURIComponent(form['title'].value)}&`+
-    `startTime=${form['startTime'].value}&`+
-    `endTime=${form['endTime'].value}&`+
-    `location=${form['location'].value}&`+
-    `link=${encodeURIComponent(form['link'].value)}`
+    if(renderId && confirm('确认提交修改后的数据？')){
+        const form = document.forms['editConference_form']
+        const formData =
+        `id=${renderId}&`+
+        `title=${encodeURIComponent(form['title'].value)}&`+
+        `startTime=${form['startTime'].value}&`+
+        `endTime=${form['endTime'].value}&`+
+        `location=${form['location'].value}&`+
+        `link=${encodeURIComponent(form['link'].value)}`
 
-    xhttp = new XMLHttpRequest()
-    xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateConference',true)
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status ==200){
-            response = JSON.parse(this.response)
-            if(response.status){
-            return  alert(response.message)
-            }else{
-                alert(response.message)
-            } 
+        xhttp = new XMLHttpRequest()
+        xhttp.open('POST',localStorage.getItem('apiURL')+'/updateData/updateConference',true)
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status ==200){
+                response = JSON.parse(this.response)
+                if(response.status){
+                return  alert(response.message)
+                }else{
+                    alert(response.message)
+                } 
+            }
         }
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
+        xhttp.send(formData);
+    }else if(!renderId){
+        alert('请选择需要修改的项')
     }
-    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhttp.setRequestHeader('Authorization',localStorage.getItem('token'))
-    xhttp.send(formData);
 }
 
