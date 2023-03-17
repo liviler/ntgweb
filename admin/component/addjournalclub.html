@@ -31,7 +31,7 @@
             </div>
             <div class="item">
                 <label for="jc_room">地点</label>
-                <div class="input"><input type="text" id="jc_room"></div>
+                <div class="input"><input type="text" id="jc_room" list="room_option"></div>
             </div>
             <div class="item">
                 <label for="jc_ppt">报告PPT</label>
@@ -66,6 +66,10 @@
                 <option value="丁晨蓉">
                 <option value="尧江明">
                 <option value="焦长峰">
+            </datalist>
+            <datalist id="room_option">
+                <option value="天琴大楼2316">
+                <option value="天琴大楼2317">
             </datalist>
 
             <button type='button' onclick="addJClubDataWithFile('addJClub_form')">提交</button><br>
