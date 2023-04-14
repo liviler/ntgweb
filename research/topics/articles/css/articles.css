@@ -1,5 +1,6 @@
 main {
   font-family: Georgia, Arial, Helvetica, "Microsoft YaHei", sans-serif;
+  min-height: 550px;
 }
 main .content {
   background-color: rgba(224, 224, 224, 0.1);
